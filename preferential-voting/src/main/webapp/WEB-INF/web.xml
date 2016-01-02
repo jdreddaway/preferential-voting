@@ -4,7 +4,7 @@
         <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>org.prefvoting.YourFirstAPI</param-value>
+            <param-value>org.prefvoting.spi.v1.elections.Elections</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
