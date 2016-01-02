@@ -4,7 +4,7 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiMethod.HttpMethod;
 
-@Api (
+@Api(
 		name = "pv",
 		title = "Preferential Voting",
 		canonicalName = "PreferentialVoting",
@@ -13,8 +13,8 @@ import com.google.api.server.spi.config.ApiMethod.HttpMethod;
 )
 public class Elections {
 
-	@ApiMethod (
-		name = "elections.get", //TODO try removing period
+	@ApiMethod(
+		name = "elections.get",
 		httpMethod = HttpMethod.GET
 	)
 	public ElectionBean get() {
@@ -23,7 +23,7 @@ public class Elections {
 		return ret;
 	}
 	
-	@ApiMethod (
+	@ApiMethod(
 		name = "elections.post",
 		httpMethod = HttpMethod.POST
 	)
