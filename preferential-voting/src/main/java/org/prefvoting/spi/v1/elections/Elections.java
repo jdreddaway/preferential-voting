@@ -1,5 +1,9 @@
 package org.prefvoting.spi.v1.elections;
 
+import javax.servlet.ServletContext;
+
+import org.prefvoting.spi.BaseApi;
+
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiMethod.HttpMethod;
@@ -12,14 +16,15 @@ import com.google.api.server.spi.config.ApiMethod.HttpMethod;
 		description = "API for managing elections and voting."
 )
 public class Elections {
-
+	
 	@ApiMethod(
 		name = "elections.get",
 		httpMethod = HttpMethod.GET
 	)
-	public ElectionBean get() {
+	public ElectionBean get(ServletContext context) {
 		ElectionBean ret =  new ElectionBean();
-		ret.test = "Hello?!?";
+		SampleDependency dependency = BaseApi.getComponentFromContext(context).dependency();
+		ret.test = dependency.getString();
 		return ret;
 	}
 	
