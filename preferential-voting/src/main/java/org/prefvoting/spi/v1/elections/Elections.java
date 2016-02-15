@@ -13,6 +13,7 @@ import org.prefvoting.spi.BaseApi;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiMethod.HttpMethod;
+import com.google.appengine.api.users.User;
 import com.google.appengine.api.utils.SystemProperty;
 
 @Api(
@@ -39,7 +40,8 @@ public class Elections {
 		name = "elections.post",
 		httpMethod = HttpMethod.POST
 	)
-	public ElectionBean post(ElectionBean input) {
+	public ElectionBean post(User user, ElectionBean input) {
+		input.test = user.getNickname();
 		String url;
 		if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {
 //			Class.forName("com.mysql.jdbc.GoogleDriver");
