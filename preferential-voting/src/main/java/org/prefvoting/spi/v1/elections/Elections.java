@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.inject.Inject;
 import javax.servlet.ServletContext;
 
 import org.prefvoting.Constants;
@@ -25,13 +26,15 @@ import com.google.appengine.api.utils.SystemProperty;
 )
 public class Elections {
 	
+	@Inject SampleDependency dependency;
+	
 	@ApiMethod(
 		name = "elections.get",
 		httpMethod = HttpMethod.GET
 	)
 	public ElectionBean get(ServletContext context) {
+		BaseApi.getComponentFromContext(context).inject(this);
 		ElectionBean ret =  new ElectionBean();
-		SampleDependency dependency = BaseApi.getComponentFromContext(context).dependency();
 		ret.test = dependency.getString();
 		return ret;
 	}
@@ -40,7 +43,8 @@ public class Elections {
 		name = "elections.post",
 		httpMethod = HttpMethod.POST
 	)
-	public ElectionBean post(User user, ElectionBean input) {
+	public ElectionBean post(ServletContext context, User user, ElectionBean input) {
+		BaseApi.getComponentFromContext(context).inject(this);
 		input.test = user.getNickname();
 		String url;
 		if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {

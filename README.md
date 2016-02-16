@@ -7,6 +7,15 @@ If you are getting weird Eclipse errors, try `mvn install` then Eclipse project 
 
 ### Getting Started
 
+#### Load Project into Eclipse
+
+These steps were taken from [Using Apache Maven](https://cloud.google.com/appengine/docs/java/tools/maven). I suggest reading that for more details.
+
+1. Install Eclipse EE
+1. Git checkout the project.
+1. Import the project into Eclipse as an existing maven project.
+
+
 #### Set up Local MySQL Database
 
 To test locally, you'll need to have a local MySQL server running.
@@ -28,3 +37,9 @@ To test locally, you'll need to have a local MySQL server running.
 1. Find the endpoint you wish to use.
 
 For more information, see Google Cloud Platform's [Testing and Deploying an API Backend](https://cloud.google.com/appengine/docs/java/endpoints/test_deploy).
+
+#### Generate Dagger Classes
+
+You will need to do this every time you change a Dagger class.
+
+1. Run the maven `clean` and `compile` goals.

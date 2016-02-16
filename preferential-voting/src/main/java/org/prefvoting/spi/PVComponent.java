@@ -1,5 +1,6 @@
 package org.prefvoting.spi;
 
+import org.prefvoting.spi.v1.elections.Elections;
 import org.prefvoting.spi.v1.elections.SampleDependency;
 
 import dagger.Component;
@@ -11,4 +12,6 @@ import dagger.Component;
 public interface PVComponent {
 
 	public SampleDependency dependency();
+	
+	public void inject(Elections elections);
 }
