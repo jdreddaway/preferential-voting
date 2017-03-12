@@ -15,8 +15,9 @@ If you are getting weird Eclipse errors, try `mvn install` then Eclipse project 
 1. Git checkout the project.
 1. Import the project into Eclipse as an existing maven project.
 1. Resolve errors
-  1. Create directory preferential-voting/target/generated-sources/annotations
+  1. Create directory preferential-voting/target/generated-sources/annotations. Try compiling to get this to go away.
   1. For "Plugin execution not covered by lifecycle configuration: ...endpoints_get_discovery_doc...", mark it as ignored in Eclipse preferences.
+  1. "Target Runtime Google App Engine (...) is not defined." - Quick Fix create new runtime Google App Engine 
 1. Project > Maven > Update Project
 1. Add `maven clean install` run configuration in Eclipse and run. (This does Dagger stuff).
 1. Add `maven install` run configuration in Eclipse and run.
@@ -28,7 +29,7 @@ Some of these steps were taken from [Using Apache Maven](https://cloud.google.co
 To test locally, you'll need to have a local MySQL server running.
 
 1. Install a mysql server.
-  1. Download mysql-server by following the instructions [here](http://dev.mysql.com/doc/refman/5.7/en/installing.html). **Make sure you get mysql version 5.6.** For linux, follow **all** of the instructions on [A Quick Guide to Using the MySQL APT Repository](A Quick Guide to Using the MySQL APT Repository).
+  1. Download mysql-server by following the instructions [here][mysql-installer]. **Make sure you get mysql version 5.7.** For linux, follow **all** of the instructions on [A Quick Guide to Using the MySQL APT Repository](A Quick Guide to Using the MySQL APT Repository).
 1. Run `set_up_local_db.sql` by running the following command (changing `<password>` to the root's password):
 
         mysql -hlocalhost -uroot -p<password> < set_up_local_db.sql
@@ -53,3 +54,4 @@ You will need to do this every time you change a Dagger class.
 
 [GooglePlugin]: https://developers.google.com/eclipse/docs/download
 [java7]: http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
+[mysql-installer]: http://dev.mysql.com/doc/refman/5.7/en/installing.html
