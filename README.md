@@ -51,6 +51,7 @@ For more information, see Google Cloud Platform's [Testing and Deploying an API 
 You will need to do this every time you change a Dagger class.
 
 1. Run the maven `clean` and `compile` goals.
+1. Refresh the project if errors persist. (F5 on project in explorer)
 
 [GooglePlugin]: https://developers.google.com/eclipse/docs/download
 [java7]: http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
